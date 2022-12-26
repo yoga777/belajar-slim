@@ -1,0 +1,133 @@
+{% block modal %}
+
+{# {Modal Tabel Bawah} #}
+<!-- MODAL ADD -->
+<div class="modal fade" id="ModalaAdd" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Tambah Barang</h3>
+      </div>
+      <form class="form-horizontal">
+        <div class="modal-body">
+
+          <form>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">ID Barang:</label>
+                <input type="text" class="form-control " id="id_barang" required>
+              </div>
+
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">ID kategori</label>
+                <select class="form-select" id="id_kategori" aria-label="Default select example">
+                  <option selected>Pilih kategori</option>
+                  {% for k in kategori %}
+                  <option value="{{k.id_kategori}}">{{k.nama_kategori}}</option>
+                  {% endfor %}
+  
+                </select>
+              </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Nama Barang:</label>
+              <input type="text" class="form-control " id="nama_barang" required>
+            </div>
+            <div class="mb-3">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Merk:</label>
+              <input type="text" class="form-control disable" id="merk" required>
+            </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Harga:</label>
+                <input type="text" class="form-control disable" id="harga_jual" required>
+            </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Stok:</label>
+                <input type="text" class="form-control disable" id="stok" required>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn" data-bs-dismiss="modal" aria-hidden="true">Tutup</button>
+          <button class="btn btn-info" id="btn_simpan">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--END MODAL ADD-->
+
+<!-- MODAL EDIT -->
+<div class="modal fade" id="ModalaEdit" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Ubah Data</h3>
+      </div>
+      <form>
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">ID Barang:</label>
+            <input type="text" class="form-control " id="idbrg" required>
+          </div>
+
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">ID kategori</label>
+            <select class="form-select" id="idktgr" aria-label="Default select example">
+              <option selected>Pilih kategori</option>
+              {% for k in kategori %}
+              <option value="{{k.id_kategori}}">{{k.nama_kategori}}</option>
+              {% endfor %}
+
+            </select>
+          </div>
+        <div class="mb-3">
+          <label for="recipient-name" class="col-form-label">Nama Barang:</label>
+          <input type="text" class="form-control " id="nama" required>
+        </div>
+        <div class="mb-3">
+        </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label">Merk:</label>
+          <input type="text" class="form-control disable" id="merk" required>
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Harga:</label>
+            <input type="text" class="form-control disable" id="harga" required>
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Stok:</label>
+            <input type="text" class="form-control disable" id="stok" required>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--END MODAL EDIT-->
+
+{# {Modal Hapus Data} #}
+<div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Hapus Data</h4>
+      </div>
+      <form class="form-horizontal">
+        <div class="modal-body">
+
+          <input type="hidden" name="kode" id="textkode" value="">
+          <div class="alert alert-warning">
+            <p>Apakah Anda yakin mau memhapus data ini?</p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button class="btn_hapus btn btn-danger" id="btn_hapus">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock modal %}
